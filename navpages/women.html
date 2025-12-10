@@ -1,0 +1,208 @@
+<!DOCTYPE html> <!-- DOCTYPE Declaration. Tells the browser that this page is written in HTML5 -->
+<html lang="sv"> <!-- Opening html tag. Language is Swedish (SV) -->
+
+
+<head>
+        <meta charset="UTF-8"> <!-- UTF-8 allows the webpage to correctly display Swedish characters such as å, ä, ö, -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- This will makes the page fit the width of the device screen. -->
+        <link rel="stylesheet" href="../style.css"> <!-- link to CSS from subfolder -->
+        <title>My Look/WOMEN</title>  <!-- Title being shown  on the browser's tab -->
+      </head>
+
+<body>   <!-- WEBSITE CONTENT-->
+
+<aside class="announcement">  <!-- The customer said that website is inspired by Zalando so we copy how it shows announcements
+  on the upper part of the website. We thought of using aside in the purpose of making it as a secondary content and as so 
+  we can easily desing it with  CSS we used class="announcement"-->
+  Träffa oss i Stockholm den 14 december! Se våra produkter live på Skansen Julmarknaden!
+</aside>
+
+<!-- HEADER -->
+<header>
+  <img src="../images/symbol.jpg" alt="Company Logo">
+  <!-- We used the company's logo for the header and if image fails text will be shown by the alt.-->
+</header>
+
+<!-- TOP NAVIGATION BAR -->
+<nav class="topnav">
+  <!-- Zalando have a navigation on 2 areas one on the top and one on the middle. This part is the top navigation.-->
+  <ul>
+    <!-- We used <ul> to create a list to structure the navigation links -->
+    <li><a href="../index.html">Hem</a></li>
+    <li><a href="../navpages/women.html">Kvinna</a></li>
+    <li><a href="../navpages/men.html">Man</a></li>
+    <li><a href="../navpages/kids.html">Barn</a></li>
+    <li><a href="../navpages/unisex.html">Unisex</a></li>
+    <!-- Each <li> is a cliclable button in the menu. We link it using <a href=""> -->
+  </ul>
+</nav>
+
+<!-- MIDDLE SECTION -->
+ <!-- CHANGEABLE PART START -->
+ <div class="womansection">
+  <!-- Main container for the Women section -->
+
+  <!-- Two-column layout: Left image, Right text -->
+  <div class="womanrow">
+    <!-- Left side: Image representing the women's collection -->
+    <div class="womanimage">
+      <img src="../images/woman-mainpicture.jpg" alt="Storefront">
+    </div>
+
+    <!-- Right side: Text content describing the women's collection -->
+    <div class="womantext">
+      <h2>KVINNA</h2> <!-- Section title -->
+      <h3>Designa. Bär. Uttryck dig.</h3> <!-- Subtitle / tagline -->
+
+      <!-- Short intro paragraph -->
+      <p>
+        Våra plagg är skapade för kvinnor som vill tänka fritt, bära sin egen stil och låta kreativiteten synas varje dag. 
+        Upptäck allt från T-shirts och hoodies till unika plagg du kan designa själv och skapa en look som verkligen är din.
+      </p>
+      <br>
+      <!-- Longer descriptive paragraph -->
+      <p>
+        I vår avdelning för kvinnor hittar du plagg som är skapade för att passa alla stunder i livet. 
+        Från sköna T-shirts till exklusiva hoodies och moderna basplagg allt designat för att kännas lika bra som det ser ut. 
+        Vi tror att stil handlar om mer än trender. Det handlar om att våga uttrycka sig, hitta sin egen väg och känna sig bekväm varje dag.
+        Därför erbjuder vi även möjligheten att skapa din egen design. Välj färg, tryck, text eller bild och gör plagget till ditt helt egna. 
+        Perfekt för vardagen, jobbet, träningen eller när du bara vill känna dig lite extra kreativ.
+      </p>
+    </div>
+  </div>
+  
+  <!-- Decorative image -->
+  <div class="decorationimg">
+    <img src="../images/blad.png" alt="Dekorationsbild">
+  </div>
+
+  <!-- Call-to-action heading for shopping -->
+  <div class="shoppanu">
+    <h2>SHOPPA NU</h2>
+  </div>
+
+  <!-- USP (Unique Selling Points) list -->
+  <div class="usp-list">
+    <div class="usp">✔ Fri frakt över 499 kr</div>
+    <div class="usp">✔ Tryckt i Sverige</div>
+    <div class="usp">✔ Unika designer</div>
+  </div>
+  
+  <!-- Grid container for women product cards -->
+  <!-- Note: We used onclick to make the entire card clickable -->
+  <div class="womangrid">
+    <!-- Product 1: T-shirt -->
+    <div class="productcardw" onclick="location.href='../clothtypepages/tshirt.html'">
+      <img src="../images/woman-tshirt.jpg" alt="T-shirt">
+      <h4>T-shirt</h4>
+      <p>Mjukt material, flera färger, anpassningsbar design.</p>
+    </div>
+
+    <!-- Product 2: Hoodie -->
+    <div class="productcardw" onclick="location.href='../clothtypepages/hoodie.html'">
+      <img src="../images/woman-hoodie.jpg" alt="Hoodie">
+      <h4>Hoodie</h4>
+      <p>Bekväm passform, ekologisk bomull, stilren look.</p>
+    </div>
+
+    <!-- Product 3: Byxor -->
+    <div class="productcardw" onclick="location.href='../clothtypepages/pants.html'">
+      <img src="../images/woman-byxor.jpg" alt="Byxor">
+      <h4>Byxor</h4>
+      <p>Mjuk och bekväm passform, perfekt för vardag och fritid.</p>
+    </div>
+
+    <!-- Product 4: Design Your Own -->
+    <div class="productcardw" onclick="location.href='../clothtypepages/makeyourown.html'">
+      <img src="../images/design-your-own.jpg" alt="Design Your Own">
+      <h4>Design Your Own</h4>
+      <p>Passar alla, modern design, välj färg och tryck själv.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CHANGEABLE PART END -->
+ 
+
+<!-- COLLAPSIBLE SECTIONS USING <details> -->
+<div class="collapsible">
+
+  <!-- We wanted our website to have a collapsible section so it won't look overwhelming for the user. We use <details>
+    to create a dropdown section the user can open and close. The <summary> is the clickable part. -->
+
+  <details>
+    <summary>Om Oss</summary>
+    <p>My Look är ett klädföretag där kunden får full frihet att bestämma design, tryck och färg på de kläder vi erbjuder.
+       Man kan välja mellan hoodies, T-shirts och byxor, allt går att anpassa efter smak och behov.
+       Till skillnad från många andra företag som erbjuder tryck på kläder fokuserar vi på kundens kreativitet, frihet och stil.
+    </p>
+  </details>
+
+<details> 
+  <summary>Material och Storlekar</summary>
+  <p>
+    Våra produkter använder ekologisk bomull, återvunna fibrer och miljövänliga färgämnen. 
+    Vi erbjuder en detaljerad <a href="../otherpages/sizes.html" target="_blank">storleksguide</a> för alla våra klädkategorier.
+  </p>  <!-- We included a link here in case the customer wants to see the sizes -->
+</details>
+
+
+<details>
+  <summary>B2B Kunder</summary>
+  <p>
+    Vi erbjuder grossistpartnerskap för återförsäljare både i Sverige och internationellt. 
+    <a href="../otherpages/business.html" target="_blank">Gå till beställningsformuläret för företag här</a>.
+    <!-- Link to business to business order form -->
+  </p>
+</details>
+
+<details>
+  <summary>FAQ</summary>
+  <p><strong>Beställning:</strong> Du kan enkelt beställa via vår webbshop. Alla beställningar bekräftas via e-post.</p>
+  <p><strong>Leverans:</strong> Hemleverans, paketbox eller postombud. Fri leverans för beställningar över 399 SEK.</p>
+  <p><strong>Returer:</strong> 30 dagars returrätt. Full återbetalning inklusive frakt vid retur av hela ordern under 399 SEK.</p>
+  <p><strong>Kundtjänst:</strong> Kontakta oss via e-post eller telefon för hjälp med beställningar, leverans eller returer.</p>
+</details>
+
+<details>
+  <summary>Betalning</summary>
+  <p><strong>Betalningsmetoder:</strong> Kort, faktura, Swish och PayPal.</p>
+  <p><strong>Säkerhet:</strong> Alla betalningar hanteras via krypterade lösningar.</p>
+  <p><strong>Fakturor:</strong> Skickas automatiskt via e-post efter genomförd betalning.</p>
+  <p><strong>Problem med betalning:</strong> Kontrollera kortuppgifter eller kontakta kundtjänst om betalningen inte går igenom.</p>
+</details>
+
+<details>
+  <summary>Leverans och fraktinformation</summary>
+  <p><strong>Leveranstid:</strong> Visas i kassan och i orderbekräftelsen via e-post.</p>
+  <p><strong>Fraktkostnader:</strong> Gratis för beställningar över 399 SEK. 49-89 SEK för beställningar under 399 SEK beroende på leveransmetod.</p>
+  <p><strong>Leveransdestinationer:</strong> Hemadress, paketbox eller postombud.</p>
+  <p><strong>Observera:</strong> Om du returnerar hela ordern och har betalat frakt återbetalas fraktkostnaden.</p>
+</details>
+
+<details>
+  <summary>Dina fördelar</summary>
+  <p><strong>Plus-kund:</strong> Gratis hemleverans och exklusiva rabatter beroende på nivå.</p>
+  <p><strong>Rabatter och erbjudanden:</strong> Regelbundna kampanjer online.</p>
+  <p><strong>Snabb leverans:</strong> 2-5 arbetsdagar beroende på produkt och leveranssätt.</p>
+  <p><strong>Personlig service:</strong> Hjälp med storlekar och produktinformation.</p>
+</details>
+
+<details>
+  <summary>Kontakta oss</summary>
+  <p><strong>E-post:</strong> support@mylook.se</p>
+  <p><strong>Telefon:</strong> 08-123 456 78 (måndag-fredag 9:00-17:00)</p>
+  <p><strong>Adress:</strong> My Look AB, Storgatan 1, 123 45 Storstad</p>
+  <p><strong>Frågor:</strong> Vi svarar inom 24 timmar på vardagar.</p>
+  <p><a href="../otherpages/form.html" target="_blank" style="color:#8b5e3c; font-weight:bold;">Öppna kundserviceformulär</a></p>
+</details>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 Clothing Company All Rights Reserved
+</footer>
+
+</body>
+</html>

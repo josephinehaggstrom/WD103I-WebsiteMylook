@@ -1,0 +1,184 @@
+<!DOCTYPE html> <!-- DOCTYPE Declaration. Tells the browser that this page is written in HTML5 -->
+<html lang="sv"> <!-- Opening html tag. Language is Swedish (SV) -->
+
+
+<head>
+        <meta charset="UTF-8"> <!-- UTF-8 allows the webpage to correctly display Swedish characters such as å, ä, ö, -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- This will makes the page fit the width of the device screen. -->
+        <link rel="stylesheet" href="../style.css"> <!-- link to CSS from subfolder -->
+        <title>My Look/SIZES</title>  <!-- Title being shown  on the browser's tab -->
+      </head>
+
+<body>   <!-- WEBSITE CONTENT-->
+
+<aside class="announcement">  <!-- The customer said that website is inspired by Zalando so we copy how it shows announcements
+  on the upper part of the website. We thought of using aside in the purpose of making it as a secondary content and as so 
+  we can easily desing it with  CSS we used class="announcement"-->
+  Träffa oss i Stockholm den 14 december! Se våra produkter live på Skansen Julmarknaden!
+</aside>
+
+<!-- HEADER -->
+<header>
+  <img src="../images/symbol.jpg" alt="Company Logo">
+  <!-- We used the company's logo for the header and if image fails text will be shown by the alt.-->
+</header>
+
+<!-- TOP NAVIGATION BAR -->
+<nav class="topnav">
+  <!-- Zalando have a navigation on 2 areas one on the top and one on the middle. This part is the top navigation.-->
+  <ul>
+    <!-- We used <ul> to create a list to structure the navigation links -->
+    <li><a href="../index.html">Hem</a></li>
+    <li><a href="../navpages/women.html">Kvinna</a></li>
+    <li><a href="../navpages/men.html">Man</a></li>
+    <li><a href="../navpages/kids.html">Barn</a></li>
+    <li><a href="../navpages/unisex.html">Unisex</a></li>
+    <!-- Each <li> is a cliclable button in the menu. We link it using <a href=""> -->
+  </ul>
+</nav>
+
+ <!-- MIDDLE SECTION: SIZE TABLE SECTION Our clients are particular with their product sizing so we created this page -->
+ <!-- CHANGEABLE PART START -->
+<section class="sizesection"> <!-- We used <section> to groups this content as they are related to each other-->
+
+  <!-- Main heading for the section -->
+  <h2>Storleksguide</h2>
+
+  <!-- Adult sizes table -->
+  <h3>Vuxna</h3> <!-- Subsection under 'Storleksguide' -->
+  <table class="sizetable"> <!-- We used <table> used to present the data; 'size-table' allows CSS styling -->
+    
+    <tr>  <!-- Table header row -->
+      <th>Storlek</th> <!-- Clothing size -->
+      <th>Bröst (cm)</th> <!-- Chest measurement -->
+      <th>Midja (cm)</th> <!-- Waist measurement -->
+      <th>Höft (cm)</th> <!-- Hip measurement -->
+      <th>Innerbenslängd (cm)</th> <!-- Inside leg / inseam -->
+      <th>Längd (cm)</th> <!-- Overall length -->
+    </tr>
+
+    <!-- Table data rows for adult sizes -->
+    <tr><td>S</td><td>92</td><td>80</td><td>96</td><td>80</td><td>176</td></tr>
+    <tr><td>M</td><td>98</td><td>86</td><td>102</td><td>82</td><td>180</td></tr>
+    <tr><td>L</td><td>104</td><td>92</td><td>108</td><td>84</td><td>184</td></tr>
+    <tr><td>XL</td><td>110</td><td>98</td><td>114</td><td>86</td><td>188</td></tr>
+    <tr><td>XXL</td><td>116</td><td>104</td><td>120</td><td>88</td><td>192</td></tr>
+    <!-- Each <tr> = one size, <td> = data cell -->
+    <!-- This is based from the data our clients gave to us -->
+
+  </table>
+
+  <!-- Kids sizes table -->
+  <h3>Barn</h3> <!-- Subsection for children's sizes -->
+  <table class="sizetable">  
+    
+    <tr>
+      <th>Ålder (år)</th> <!-- Age range -->
+      <th>Storlek (cm)</th> <!-- Clothing size in cm -->
+      <th>Längd (cm)</th> <!-- Overall height/length -->
+      <th>Bröst (cm)</th> <!-- Chest width -->
+      <th>Säte (cm)</th> <!-- Seat/hip width -->
+      <th>Innerbenslängd (cm)</th> <!-- Inside leg / inseam -->
+    </tr>
+
+    <!-- Table data rows for kids sizes -->
+    <tr><td>1</td><td>80</td><td>73-82</td><td>48</td><td>50</td><td>32</td></tr>
+    <tr><td>1.5-2</td><td>90</td><td>83-92</td><td>52</td><td>54</td><td>37</td></tr>
+    <tr><td>3-4</td><td>100</td><td>93-102</td><td>56</td><td>58</td><td>42</td></tr>
+    <tr><td>5-6</td><td>110</td><td>103-112</td><td>60</td><td>67</td><td>47</td></tr>
+    <tr><td>7-8</td><td>120</td><td>123-132</td><td>64</td><td>71</td><td>52</td></tr>
+    <tr><td>8-9</td><td>130</td><td>133-143</td><td>68</td><td>76</td><td>57</td></tr>
+    <tr><td>9-10</td><td>140</td><td>133-143</td><td>72</td><td>80</td><td>62</td></tr>
+    <!-- Multiple rows show the progression of sizes by age -->
+    <!-- Each <td> contains specific measurement values for accuracy -->
+  
+    </table>
+
+</section>
+<!-- End of SIZE TABLE SECTION -->
+<!-- CHANGEABLE PART END -->
+
+
+
+<!-- COLLAPSIBLE SECTIONS USING <details> -->
+<div class="collapsible">
+
+  <!-- We wanted our website to have a collapsible section so it won't look overwhelming for the user. We use <details>
+    to create a dropdown section the user can open and close. The <summary> is the clickable part. -->
+
+  <details>
+    <summary>Om Oss</summary>
+    <p>My Look är ett klädföretag där kunden får full frihet att bestämma design, tryck och färg på de kläder vi erbjuder.
+       Man kan välja mellan hoodies, T-shirts och byxor, allt går att anpassa efter smak och behov.
+       Till skillnad från många andra företag som erbjuder tryck på kläder fokuserar vi på kundens kreativitet, frihet och stil.
+    </p>
+  </details>
+
+<details> 
+  <summary>Material och Storlekar</summary>
+  <p>
+    Våra produkter använder ekologisk bomull, återvunna fibrer och miljövänliga färgämnen. 
+    Vi erbjuder en detaljerad <a href="../otherpages/sizes.html" target="_blank">storleksguide</a> för alla våra klädkategorier.
+  </p>  <!-- We included a link here in case the customer wants to see the sizes -->
+</details>
+
+
+<details>
+  <summary>B2B Kunder</summary>
+  <p>
+    Vi erbjuder grossistpartnerskap för återförsäljare både i Sverige och internationellt. 
+    <a href="../otherpages/business.html" target="_blank">Gå till beställningsformuläret för företag här</a>.
+    <!-- Link to business to business order form -->
+  </p>
+</details>
+
+<details>
+  <summary>FAQ</summary>
+  <p><strong>Beställning:</strong> Du kan enkelt beställa via vår webbshop. Alla beställningar bekräftas via e-post.</p>
+  <p><strong>Leverans:</strong> Hemleverans, paketbox eller postombud. Fri leverans för beställningar över 399 SEK.</p>
+  <p><strong>Returer:</strong> 30 dagars returrätt. Full återbetalning inklusive frakt vid retur av hela ordern under 399 SEK.</p>
+  <p><strong>Kundtjänst:</strong> Kontakta oss via e-post eller telefon för hjälp med beställningar, leverans eller returer.</p>
+</details>
+
+<details>
+  <summary>Betalning</summary>
+  <p><strong>Betalningsmetoder:</strong> Kort, faktura, Swish och PayPal.</p>
+  <p><strong>Säkerhet:</strong> Alla betalningar hanteras via krypterade lösningar.</p>
+  <p><strong>Fakturor:</strong> Skickas automatiskt via e-post efter genomförd betalning.</p>
+  <p><strong>Problem med betalning:</strong> Kontrollera kortuppgifter eller kontakta kundtjänst om betalningen inte går igenom.</p>
+</details>
+
+<details>
+  <summary>Leverans och fraktinformation</summary>
+  <p><strong>Leveranstid:</strong> Visas i kassan och i orderbekräftelsen via e-post.</p>
+  <p><strong>Fraktkostnader:</strong> Gratis för beställningar över 399 SEK. 49-89 SEK för beställningar under 399 SEK beroende på leveransmetod.</p>
+  <p><strong>Leveransdestinationer:</strong> Hemadress, paketbox eller postombud.</p>
+  <p><strong>Observera:</strong> Om du returnerar hela ordern och har betalat frakt återbetalas fraktkostnaden.</p>
+</details>
+
+<details>
+  <summary>Dina fördelar</summary>
+  <p><strong>Plus-kund:</strong> Gratis hemleverans och exklusiva rabatter beroende på nivå.</p>
+  <p><strong>Rabatter och erbjudanden:</strong> Regelbundna kampanjer online.</p>
+  <p><strong>Snabb leverans:</strong> 2-5 arbetsdagar beroende på produkt och leveranssätt.</p>
+  <p><strong>Personlig service:</strong> Hjälp med storlekar och produktinformation.</p>
+</details>
+
+<details>
+  <summary>Kontakta oss</summary>
+  <p><strong>E-post:</strong> support@mylook.se</p>
+  <p><strong>Telefon:</strong> 08-123 456 78 (måndag-fredag 9:00-17:00)</p>
+  <p><strong>Adress:</strong> My Look AB, Storgatan 1, 123 45 Storstad</p>
+  <p><strong>Frågor:</strong> Vi svarar inom 24 timmar på vardagar.</p>
+  <p><a href="../otherpages/form.html" style="color:#8b5e3c; font-weight:bold;">Öppna kundserviceformulär</a></p>
+</details>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  © 2025 Clothing Company All Rights Reserved
+</footer>
+
+</body>
+</html>

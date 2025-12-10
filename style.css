@@ -1,0 +1,1266 @@
+/* Since this is our first time creating a website with multiple pages (we have 14 HTML files for this project), some 
+code might be repetitive.At the top, we have the CSS that applies to all pages, covering the header and footer sections.
+After that, we have the CSS for the main content sections.We chose this approach so that if something goes wrong on one 
+page, we can simply edit the CSS for the main content of that page individually. We recognize that there are better ways
+ to structure this, but with our limited knowledge, we used this method to manage our shortcomings. */
+
+
+
+/*We used an universal selector *{} so our website will look the same in all browsers. */
+        * {
+            margin: 0;  
+            padding: 0;  
+            box-sizing: border-box; 
+        }
+
+/* ===== APPLICABLE TO ALL PAGES ===== */
+      body {
+          margin: 10px; /* Remove default browser margin for a clean layout */
+          font-family: Nunito, sans-serif; /* Set modern, readable font for body text */
+          font-size: 20px; /* Base font size for readability */
+          background: #f5efe6; /* Soft beige background for warm, neutral tone */
+          color: #4a3728;      /* Dark brown text color for contrast and readability */
+          width: 100%;    /* Take full width of screen */
+          box-sizing: border-box; /* Include padding in width calculation */
+      }
+
+      h2 {
+          font-size: 90px; /* Large font for clear section titles */
+      }
+
+      h3 {
+          font-size: 35px; /* Subheading size smaller than h2 */
+          line-height: 1.6; /* Line spacing for readability */
+      }
+
+ 
+      p {
+          font-size: 20px; /* Paragraph text smaller for reading long content */
+          line-height: 1.6; /* Maintain good spacing between lines */
+          color: #6d4f38; /* Slightly lighter brown to differentiate from h2/h3 */
+      }
+
+/* Announcement bar: ASIDE */
+        .announcement {
+            background: #8b5e3c; /* Dark brown-orange background for visibility */
+            color: #f8f4ef; /* Light text for contrast */
+            font-weight: bold; /* Make announcement prominent */
+            padding: 10px 10px; /* Padding around text */
+            overflow: hidden; /* Prevent content overflow */
+            white-space: nowrap; /* Single-line text for scrolling announcements if needed */
+        }
+
+/* ===== HEADER ===== */
+          header {
+              background: white; /* Clean header background to match the color of the logo given by the client */
+              padding: 20px; /* Space around content */
+              text-align: center; /* Center the logo/image */
+              border-bottom: 1px solid #b69373; /* Subtle separation line from content */
+          }
+
+          header img {
+              max-height: 120px; /* Restrict logo size to keep layout tidy */
+          }
+
+
+/* ===== COLLAPSIBLE SECTIONS: LOWER PART OF THE WEBSITE ===== */
+          .collapsible {
+              padding: 40px;
+              display: flex; /* Flex layout for multiple collapsible cards */
+              justify-content: space-around;
+              flex-wrap: wrap; /* Wrap cards on small screens */
+              gap: 20px;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+              border-radius: 12px;
+              background: linear-gradient(135deg, #a8917c, #a1896b70); /* Subtle gradient background for visual interest */
+              
+            }
+
+          .collapsible details {
+              flex: 1 1 22%; /* Flexible width, shrinkable */
+              min-width: 250px; /* Minimum width for readability */
+              border: 2px solid #8b5e3c; /* Card border */
+              border-radius: 8px; /* Rounded corners */
+              padding: 10px 15px;
+              background: #f8f4ef; /* Cream background for contrast */
+              color: #4a3728;
+              box-sizing: border-box; /* Include padding in width */
+              transition: transform 0.2s; /* Hover effect */
+          }
+
+          .collapsible details:hover {
+              transform: translateY(-3px); /* Slight lift on hover for interactivity */
+          }
+
+          .collapsible summary {
+              cursor: pointer; /* Indicate clickable element */
+              font-weight: bold;
+              font-size: 1.1rem;
+              outline: none; /* Remove default focus outline */
+              margin-bottom: 8px;
+          }
+
+          .collapsible summary::-webkit-details-marker {
+              display: none; /* Remove default arrow marker */
+          }
+
+          .collapsible details[open] p {
+              animation: fadeIn 0.3s ease-in; /* Smooth fade-in animation when opened */
+          }
+
+          @keyframes fadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+          }
+
+/* ===== Top Navigation ===== */
+            .topnav ul {
+                list-style: none; /* Remove bullet points */
+                margin: 0; 
+                padding: 0; 
+                background: #c8a98e; /* Light brown navigation background */
+                display: flex; /* Horizontal layout of menu items */
+            }
+
+            .topnav ul li {
+                position: relative; /* Allows future dropdown positioning if needed */
+            }
+
+            .topnav ul li a {
+                display: block; /* Fill entire list item area for click target */
+                padding: 15px 20px; /* Comfortable spacing for touch/click */
+                color: #4a3728; /* Text color for readability */
+                text-decoration: none; /* Remove underline */
+                font-weight: bold; /* Make links stand out */
+            }
+
+            .topnav ul li a:hover {
+                background: #8b5e3c; /* Darker background on hover for visual feedback */
+                color: #f4ede6; /* Light text color on hover for contrast */
+            }
+/* ===== FOOTER ===== */
+            footer {
+                background: #4a3728; /* Dark brown background */
+                color: #f4ede6;      /* Light cream text for contrast */
+                text-align: center;
+                padding: 20px;
+                margin-top: 30px;
+            }
+
+/* ===== START OF MIDDLE PAGES===== */
+/* ===== INDEX.HTML PAGE===== */   
+
+            /* ===== CONTENT + NAV GRID ===== */
+           
+            .topsection { /* Top section container */
+                display: flex; /* Layout children side by side (content left, nav/images right) */
+                justify-content: space-between; /* Spread out children across horizontal space */
+                flex-wrap: wrap; /* Wrap content on smaller screens for responsiveness */
+                padding: 30px; /* Space inside container */
+                gap: 20px; /* Gap between content and nav section */
+            }
+
+            /* Content column inside topsection */
+            .content {
+                flex: 1 1 300px; /* Flexible width, minimum 300px */
+                padding: 10px 20px 25px 20px; /* Internal spacing */
+                color: #4a3728; /* Text color */
+            }
+
+            .content h2 {
+                font-size: 5rem; /* Large main heading */
+                margin: 0 0 15px 0; /* Only bottom spacing */
+                font-weight: 700; /* Bold text */
+                color: #5c3a21; /* Slightly darker heading */
+            }
+
+            .content p {
+                margin-bottom: 14px;
+                margin-top: 25px;
+                color: #6d4f38; /* Paragraph color */
+                font-size: 1.3rem;
+                line-height: 1.7; /* Line spacing for readability */
+            }
+
+            .shoppanu h2 {
+                margin-bottom: -120px; /* Negative margin to move heading upwards */
+                margin-top: 25px;
+                color: #6d4f38;
+                font-size: 80px; /* Very large heading */
+                line-height: 1.5;
+                text-align: center; /* Center the heading */
+            }
+
+            .decorationimg {
+                display: block;
+                width: 50px; 
+                height: 50px;
+                margin-top: -150px; /* Moves image upwards */
+                margin-left: 1100px; /* Moves image to the right */
+            }
+
+            /* Unique selling points list */
+            .usp-list {
+                text-align: end; /* Right-align text */
+                color: #4f382c;
+                padding-right: 180px;
+                padding-bottom: 10px;
+            }
+
+            /* Navigation grid container */
+            .navlinks {
+                flex: 1 1 200px; /* Flexible width, minimum 200px */
+                display: grid; /* Grid layout for nav images */
+                grid-template-columns: repeat(2, 1fr); /* 2 columns */
+                gap: 10px; /* Space between images */
+                justify-items: center; /* Center images in each cell */
+                align-items: center; /* Vertical alignment */
+            }
+
+            /* Individual navigation links */
+            .navlinks a {
+                width: 100%;
+                aspect-ratio: 1/1; /* Keep square */
+                overflow: hidden; 
+                border-radius: 10px; /* Rounded corners */
+                border: 2px solid #8b5e3c; /* Border color */
+                transition: transform 0.3s, border-color 0.3s; /* Smooth hover effect */
+            }
+
+            .navlinks a img {
+                width: 100%; /* Fill container */
+                height: 100%;
+                object-fit: cover; /* Cover the box without stretching */
+            }
+
+            .navlinks a:hover {
+                transform: scale(1.05); /* Slight zoom on hover */
+                border-color: #4a3728; /* Darker border on hover */
+            }
+/* ===== OTHER PAGES==== */  
+/* ===== SIZES.HTML PAGE: TABLE SECTION ===== */
+            .sizesection {
+              width: 90%; /* Limit width to 90% of viewport */
+              max-width: 900px; /* Maximum width for large screens */
+              margin: 40px auto; /* Center section with vertical margin */
+              padding: 20px;
+            }
+
+            .sizesection h2 {
+              text-align: center; /* Centered section title */
+              font-size: 2rem;
+              margin-bottom: 20px;
+            }
+
+            .sizesection h3 {
+              margin-top: 30px; /* Spacing before subheading */
+              margin-bottom: 10px;
+              font-size: 1.4rem;
+            }
+
+            .sizetable {
+              width: 100%; /* Table spans container width */
+              border-collapse: collapse; /* Merge borders for neat look */
+              margin-bottom: 30px;
+              font-size: 1rem;
+            }
+
+            .sizetable th,
+            .sizetable td {
+              border: 1px solid #ccc; /* Light gray border for cells */
+              padding: 10px;
+              text-align: center; /* Center align all data */
+            }
+
+            .sizetable th {
+              background-color: #f4f4f4; /* Light background for headers */
+              font-weight: bold;
+            }
+
+            .sizetable tr:nth-child(even) {
+              background-color: #fafafa; /* Zebra striping for readability */
+            }
+
+/* ===== FORM.HTML and BUSINESS.HTML ===== */
+           
+            .form { /* FORM CONTAINER */
+                width: 90%; /* Responsive width for most screen sizes */
+                max-width: 650px; /* Prevent form from being too wide on large screens */
+                margin: 40px auto; /* Center form horizontally and give vertical spacing */
+                padding: 30px; /* Space inside the form container */
+                background: #f8f4ef; /* Light cream background */
+                border: 2px solid #8b5e3c; /* Warm brown border */
+                border-radius: 12px; /* Rounded corners for a modern look */
+                box-shadow: 0 6px 12px rgba(0,0,0,0.08); /* Subtle shadow for depth */
+            }
+
+            /* Form section heading */
+            .form h2 {
+                text-align: center; /* Center the title */
+                color: #4a3728;
+                font-size: 42px;
+                margin-bottom: 20px; /* Space below heading */
+            }
+
+            /* Form labels */
+            .form label {
+                display: block; /* Ensure label is above the input field */
+                margin-top: 15px; /* Space above each label */
+                font-weight: bold;
+                color: #4a3728;
+                font-size: 1.1rem;
+            }
+
+            /* Inputs, textareas, and selects */
+            .form input,
+            .form textarea,
+            .form select {
+                width: 100%; /* Make fields stretch full container width */
+                padding: 12px; /* Internal spacing inside inputs */
+                margin-top: 6px; /* Space below label */
+                border: 1px solid #b69373; /* Light brown border */
+                border-radius: 6px;
+                font-size: 1rem;
+                background: #fffdf9; /* Slightly off-white for readability */
+                color: #4a3728;
+                box-sizing: border-box; /* Include padding in width */
+                transition: border-color 0.3s, box-shadow 0.3s; /* Smooth focus effect */
+            }
+
+            /* Focus state for inputs/selects/textarea */
+            .form input:focus,
+            .form textarea:focus,
+            .form select:focus {
+                border-color: #8b5e3c; /* Darker border on focus */
+                outline: none; /* Remove default outline */
+                box-shadow: 0 0 6px rgba(139, 94, 60, 0.4); /* Subtle glow effect */
+            }
+
+            /* Textarea specific */
+            .form textarea {
+                resize: vertical; /* Only allow vertical resizing */
+                min-height: 150px; /* Enough height for long messages */
+            }
+
+            /* File input styling */
+            .form input[type="file"] {
+                padding: 6px;
+                font-size: 0.95rem;
+            }
+
+            /* Button styling */
+            .form button {
+                width: 100%; /* Full width button */
+                margin-top: 25px; /* Space above button */
+                padding: 14px;
+                background: #8b5e3c; /* Button color */
+                color: #f8f4ef; /* Text color */
+                border: none; /* Remove default button border */
+                border-radius: 8px; /* Rounded corners */
+                font-size: 1.2rem;
+                font-weight: bold;
+                cursor: pointer; /* Pointer on hover */
+                transition: background 0.3s, transform 0.2s; /* Smooth hover effect */
+            }
+
+            /* Button hover effect */
+            .form button:hover {
+                background: #4a3728; /* Darker on hover */
+                transform: scale(1.02); /* Slight zoom effect */
+            }
+/* ===== PRICELIST.HTML PAGE==== */  
+            /* Container for the pricing tables and headings. */
+            .pricesection {
+            padding: 40px 20px; /* Space around the content */
+            background: #fff8f0; /* Soft cream background */
+            color: #4a3728; /* Warm brown text */
+            }
+
+            /* Main heading for the section */
+            .pricesection h2 {
+            font-size: 2rem; /* Large title font */
+            color: #5c3a21; /* Darker brown for emphasis */
+            margin-bottom: 20px; /* Space below heading */
+            }
+
+            /* Subheadings for different categories (Adults/Kids) */
+            .pricesection h3 {
+            font-size: 1.5rem; /* Slightly smaller than main heading */
+            color: #5c3a21; /* Same dark brown for consistency */
+            margin-top: 25px; /* Space above subheading */
+            margin-bottom: 10px; /* Space below subheading */
+            }
+
+            /* Table containing product prices */
+            .pricetable {
+            width: 100%; /* Full width of container */
+            border-collapse: collapse; /* Remove double borders */
+            margin-bottom: 20px; /* Space below table */
+            }
+
+            /* Common styling for table headers and cells */
+            .pricetable th,
+            .pricetable td {
+            border: 2px solid #a67853; /* Brown borders for clarity */
+            padding: 10px 12px; /* Space inside each cell */
+            text-align: center; /* Center text in cells */
+            font-size: 1rem; /* Standard readable size */
+            }
+
+            /* Header row styling */
+            .pricetable th {
+            background: #fff6ec; /* Slightly lighter background for headers */
+            color: #5c3a21; /* Dark brown text for readability */
+            }
+
+            /* Alternate row coloring for easier reading */
+            .pricetable tr:nth-child(even) {
+            background: #fff1e0; /* Light cream for even rows */
+            }
+
+            /* Note text under the tables */
+            .pricesection .note {
+            font-size: 0.95rem; /* Slightly smaller than body text */
+            color: #7a5a41; /* Medium brown for less emphasis */
+            margin-top: 10px; /* Space above note */
+            }
+
+/* ===== ORDERSENT.HTML PAGE==== */            
+           
+            .confirmation-box {  /* Confirmation Box Container  */
+            background-color: #fffdf9; /* Soft cream background */
+            border: 2px solid #8b5e3c; /* Warm brown border */
+            border-radius: 12px; /* Rounded corners */
+            padding: 40px; /* Space inside the box */
+            max-width: 600px; /* Maximum width */
+            width: 90%; /* Responsive width */
+            text-align: center; /* Center text inside */
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08); /* Subtle shadow for depth */
+            margin: auto; /* Center horizontally */
+            position: relative;
+            top: 50%; /* Move box to vertical center */
+            transform: translateY(-50%); /* Perfect vertical centering */
+            }
+
+            /* ===== Confirmation Heading ===== */
+            .confirmation-box h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #8b5e3c; /* Warm brown heading */
+            }
+
+            /* ===== Confirmation Message Text ===== */
+            .confirmation-box p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            }
+
+            /* ===== Return / Action Button ===== */
+            .confirmation-box a {
+            display: inline-block; /* Inline block for padding and clickable area */
+            padding: 12px 24px; /* Space inside button */
+            background-color: #8b5e3c; /* Base warm brown */
+            color: #fffdf9; /* Light text */
+            border-radius: 8px; /* Rounded corners */
+            text-decoration: none; /* Remove underline */
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s; /* Smooth hover effect */
+            }
+
+            /* ===== Button Hover Effect ===== */
+            .confirmation-box a:hover {
+            background-color: #4a3728; /* Darker brown on hover */
+            transform: scale(1.05); /* Slight zoom for feedback */
+            }
+
+/* ===== INDIVIDUAL PAGES==== */
+            /* ===== WOMEN.HTML PAGE==== */
+            /* ===== Two-column layout for main section ===== */
+            .womanrow {
+                display: flex; /* Align image and text side by side */
+                flex-wrap: wrap; /* Stack vertically on smaller screens */
+                gap: 30px; /* Space between image and text columns */
+                align-items: flex-start; /* Align top edges of content */
+                margin-bottom: 50px;
+                margin-top: 50px;
+            }
+
+            .womanimage {
+                flex: 1 1 300px; /* Flexible width with minimum of 300px */
+                max-width: 500px; /* Prevent image from stretching too much */
+            }
+
+            .womanimage img {
+                width: 100%; /* Image fills container width */
+                height: auto; /* Maintain aspect ratio */
+                border-radius: 12px; /* Rounded corners for soft look */
+                object-fit: cover; /* Crop or scale to fit container nicely */
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Subtle shadow for depth */
+            }
+
+            .womantext {
+                flex: 1 1 300px; /* Flexible width with minimum 300px */
+                font-size: 15px; 
+                color: #4a3728; /* Dark brown text */
+                display: flex;
+                flex-direction: column; /* Stack headings and paragraphs vertically */
+                justify-content: center; /* Vertically center text within column */
+                gap: 15px; /* Space between elements inside column */
+                margin-top: 20px;
+                margin-left: 50px;
+                margin-right: 150px; /* Extra space to prevent overlap with background/decorative images */
+                padding-bottom: 100px; /* Extra space for layout balance */
+            }
+
+            /* ===== Product grid: clickable products ===== */
+            .womangrid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive grid */
+                gap: 25px; /* Space between product cards */
+                margin-top: 40px;
+                margin-bottom: 60px;
+            }
+
+            /* Individual product card styling */
+            .productcardw {
+                display: flex;
+                flex-direction: column; /* Stack image, title, description vertically */
+                align-items: center;
+                text-align: center;
+                border: 2px solid #a67853; /* Lighter brown border */
+                border-radius: 12px; /* Rounded corners */
+                padding: 20px; /* Inner spacing */
+                background: #fff6ec; /* Soft cream background */
+                cursor: pointer; /* Pointer on hover to indicate clickable */
+                transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; /* Smooth hover animations */
+            }
+
+            .productcardw img {
+                width: 100%; /* Fill container width */
+                height: 180px; /* Fixed height for uniformity */
+                border-radius: 10px; /* Rounded corners on image */
+                margin-bottom: 15px; /* Space below image */
+                object-fit: cover; /* Crop to fit container nicely */
+            }
+
+            .productcardw h4 {
+                margin: 10px 0 5px;
+                color: #5c3a21; /* Darker brown for headings */
+                font-size: 35px;
+                font-weight: 600;
+            }
+
+            .productcardw p {
+                font-size: 18px;
+                color: #7a5a41; /* Slightly lighter brown for description */
+                line-height: 1.4;
+            }
+
+            /* Hover effect for product cards */
+            .productcardw:hover {
+                transform: translateY(-5px) scale(1.03); /* Slight lift and zoom */
+                border-color: #5c3a21; /* Darker border on hover */
+                box-shadow: 0 12px 22px rgba(0,0,0,0.15); /* Stronger shadow for depth */
+            }
+
+            /* Optional: allow wrapping of links inside product card */
+            .productcardw a {
+                text-decoration: none; /* Remove underline */
+                color: inherit; /* Inherit text color */
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+
+/* ===== MEN.HTML PAGE==== */
+         /* ===== Two-column layout for Men section ===== */
+            .manrow {
+                display: flex; /* Side-by-side layout for image and text */
+                flex-wrap: wrap; /* Allow wrapping if container is too narrow */
+                gap: 30px; /* Space between image and text */
+                align-items: flex-start; /* Align top edges of both columns */
+                margin-top: 50px;
+                margin-bottom: 50px;
+            }
+
+            /* Left column: Image */
+            .manimage {
+                flex: 1 1 300px; /* Flexible width with minimum of 300px */
+                max-width: 500px; /* Prevent image from getting too wide */
+            }
+
+            .manimage img {
+                width: 100%; /* Full width of container */
+                height: auto; /* Maintain aspect ratio */
+                border-radius: 12px; /* Rounded corners */
+                object-fit: cover; /* Cover container while keeping aspect ratio */
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Subtle shadow for depth */
+            }
+
+            /* Right column: Text content */
+            .mantext {
+                 flex: 1 1 300px; /* Flexible width with minimum 300px */
+                font-size: 15px; 
+                color: #4a3728; /* Dark brown text */
+                display: flex;
+                flex-direction: column; /* Stack headings and paragraphs vertically */
+                justify-content: center; /* Vertically center text within column */
+                gap: 15px; /* Space between elements inside column */
+                margin-top: 20px;
+                margin-left: 50px;
+                margin-right: 150px; /* Extra space to prevent overlap with background/decorative images */
+                padding-bottom: 100px; /* Extra space for layout balance */
+            }
+
+            /* ===== Product grid: clickable products ===== */
+            .mangrid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive columns */
+                gap: 25px; /* Space between cards */
+                margin-top: 40px;
+                margin-bottom: 60px;
+            }
+
+            /* Individual product card */
+            .productcardm {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                border: 2px solid #a67853; /* Light brown border */
+                border-radius: 12px;
+                padding: 20px;
+                background: #fff6ec; /* Soft cream background */
+                cursor: pointer; /* Indicates clickable card */
+                transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; /* Smooth hover effect */
+            }
+
+            .productcardm img {
+                width: 100%;
+                height: 180px; /* Consistent image height for all products */
+                border-radius: 10px;
+                margin-bottom: 15px;
+                object-fit: cover;
+            }
+
+            .productcardm h4 {
+                margin: 10px 0 5px;
+                color: #5c3a21; /* Darker brown for headings */
+                font-size: 1.1rem;
+                font-weight: 600;
+            }
+
+            .productcardm p {
+                font-size: 0.95rem;
+                color: #7a5a41; /* Medium brown for description */
+                line-height: 1.4;
+            }
+
+            /* Hover effect for product card */
+            .productcardm:hover {
+                transform: translateY(-5px) scale(1.03); /* Slight lift and zoom */
+                border-color: #5c3a21; /* Darker border on hover */
+                box-shadow: 0 12px 22px rgba(0,0,0,0.15); /* More pronounced shadow */
+            }
+
+            /* Make entire card clickable via <a> if needed */
+            .productcardm a {
+                text-decoration: none;
+                color: inherit;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+           
+/* ===== KIDS.HTML PAGE==== */
+             /* ===== Two-column layout for Kids section ===== */
+            .kidsrow {
+                display: flex; /* Side-by-side layout for image and text */
+                flex-wrap: wrap; /* Allow wrapping if container is too narrow */
+                gap: 30px; /* Space between image and text */
+                align-items: flex-start; /* Align top edges of both columns */
+                margin-top: 50px;
+                margin-bottom: 50px;
+            }
+
+            /* Left column: Image */
+            .kidsimage {
+                flex: 1 1 300px; /* Flexible width with minimum of 300px */
+                max-width: 500px; /* Prevent image from being too wide */
+            }
+
+            .kidsimage img {
+                width: 100%; /* Full width of container */
+                height: auto; /* Maintain aspect ratio */
+                border-radius: 12px; /* Rounded corners */
+                object-fit: cover; /* Cover container while keeping aspect ratio */
+                box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Subtle shadow for depth */
+            }
+
+            /* Right column: Text content */
+            .kidstext {
+                 flex: 1 1 300px; /* Flexible width with minimum 300px */
+                font-size: 15px; 
+                color: #4a3728; /* Dark brown text */
+                display: flex;
+                flex-direction: column; /* Stack headings and paragraphs vertically */
+                justify-content: center; /* Vertically center text within column */
+                gap: 15px; /* Space between elements inside column */
+                margin-top: 20px;
+                margin-left: 50px;
+                margin-right: 150px; /* Extra space to prevent overlap with background/decorative images */
+                padding-bottom: 100px; /* Extra space for layout balance */
+            }
+
+            /* ===== Product grid: clickable products ===== */
+            .kidsgrid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive columns */
+                gap: 25px; /* Space between cards */
+                margin-top: 40px;
+                margin-bottom: 60px;
+            }
+
+            /* Individual product card */
+            .productcardk {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                border: 2px solid #a67853; /* Light brown border */
+                border-radius: 12px;
+                padding: 20px;
+                background: #fff6ec; /* Soft cream background */
+                cursor: pointer; /* Indicates clickable card */
+                transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; /* Smooth hover effect */
+            }
+
+            .productcardk img {
+                width: 100%;
+                height: 180px; /* Consistent image height for all products */
+                border-radius: 10px;
+                margin-bottom: 15px;
+                object-fit: cover;
+            }
+
+            .productcardk h4 {
+                margin: 10px 0 5px;
+                color: #5c3a21; /* Darker brown for headings */
+                font-size: 1.1rem;
+                font-weight: 600;
+            }
+
+            .productcardk p {
+                font-size: 0.95rem;
+                color: #7a5a41; /* Medium brown for description */
+                line-height: 1.4;
+            }
+
+            /* Hover effect for product card */
+            .productcardk:hover {
+                transform: translateY(-5px) scale(1.03); /* Slight lift and zoom */
+                border-color: #5c3a21; /* Darker border on hover */
+                box-shadow: 0 12px 22px rgba(0,0,0,0.15); /* More pronounced shadow */
+            }
+
+            /* Make entire card clickable via <a> if needed */
+            .productcardk a {
+                text-decoration: none;
+                color: inherit;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+
+/* ===== UNISEX.HTML PAGE==== */
+                /* ===== Two-column layout for Unisex section ===== */
+                .unisexrow {
+                    display: flex; /* Side-by-side layout for image and text */
+                    flex-wrap: wrap; /* Allow wrapping if container is too narrow */
+                    gap: 30px; /* Space between image and text */
+                    align-items: flex-start; /* Align top edges of both columns */
+                    margin-top: 50px;
+                    margin-bottom: 50px;
+                }
+
+                /* Left column: Image */
+                .uniseximage {
+                    flex: 1 1 300px; /* Flexible width with minimum of 300px */
+                    max-width: 500px; /* Prevent image from being too wide */
+                }
+
+                .uniseximage img {
+                    width: 100%; /* Full width of container */
+                    height: auto; /* Maintain aspect ratio */
+                    border-radius: 12px; /* Rounded corners */
+                    object-fit: cover; /* Cover container while keeping aspect ratio */
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Subtle shadow for depth */
+                }
+
+                /* Right column: Text content */
+                .unisextext {
+                flex: 1 1 300px; /* Flexible width with minimum 300px */
+                font-size: 15px; 
+                color: #4a3728; /* Dark brown text */
+                display: flex;
+                flex-direction: column; /* Stack headings and paragraphs vertically */
+                justify-content: center; /* Vertically center text within column */
+                gap: 15px; /* Space between elements inside column */
+                margin-top: 20px;
+                margin-left: 50px;
+                margin-right: 150px; /* Extra space to prevent overlap with background/decorative images */
+                padding-bottom: 100px; /* Extra space for layout balance */
+                }
+
+                /* ===== Product grid: clickable products ===== */
+                .unisexgrid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive columns */
+                    gap: 25px; /* Space between cards */
+                    margin-top: 40px;
+                    margin-bottom: 60px;
+                }
+
+                /* Individual product card */
+                .productcardu {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    border: 2px solid #a67853; /* Light brown border */
+                    border-radius: 12px;
+                    padding: 20px;
+                    background: #fff6ec; /* Soft cream background */
+                    cursor: pointer; /* Indicates clickable card */
+                    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; /* Smooth hover effect */
+                }
+
+                .productcardu img {
+                    width: 100%;
+                    height: 180px; /* Consistent image height for all products */
+                    border-radius: 10px;
+                    margin-bottom: 15px;
+                    object-fit: cover;
+                }
+
+                .productcardu h4 {
+                    margin: 10px 0 5px;
+                    color: #5c3a21; /* Darker brown for headings */
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                }
+
+                .productcardu p {
+                    font-size: 0.95rem;
+                    color: #7a5a41; /* Medium brown for description */
+                    line-height: 1.4;
+                }
+
+                /* Hover effect for product card */
+                .productcardu:hover {
+                    transform: translateY(-5px) scale(1.03); /* Slight lift and zoom */
+                    border-color: #5c3a21; /* Darker border on hover */
+                    box-shadow: 0 12px 22px rgba(0,0,0,0.15); /* More pronounced shadow */
+                }
+
+                /* Make entire card clickable via <a> if needed */
+                .productcardu a {
+                    text-decoration: none;
+                    color: inherit;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+/* INDIVIDUAL CLOTHING PAGES */
+/* HOODIE.HTML PAGE */
+                /* Page wrapper for hoodie product page. Adds padding and centers all page content horizontally. */
+                .hoodiepage {
+                width: 100%;
+                padding: 20px;
+                display: flex;
+                justify-content: center;
+                font-family: Arial, sans-serif;
+                }
+
+                /* ===== Two-column layout: Image + Details =====
+                Creates a horizontal row with space between columns. */
+                .hoodierow {
+                display: flex;
+                gap: 30px; /* Space between image and details */
+                max-width: 1100px;
+                width: 100%;
+                align-items: flex-start; /* Align top edges of columns */
+                }
+
+                /* ===== Product image styling =====
+                Controls image size, rounded corners, and aspect ratio. */
+                .hoodieimage img {
+                width: 400px;
+                height: auto;
+                border-radius: 10px;
+                object-fit: cover; /* Keeps proportions intact */
+                }
+
+                /* ===== Details column styling =====
+                Expands to fill remaining horizontal space. */
+                .hoodiedetails {
+                flex: 1;
+                }
+
+                /* ===== Product title ===== */
+                .hoodiedetails h2 {
+                font-size: 28px;
+                margin-bottom: 10px;
+                }
+
+                /* ===== Short description =====
+                Bold text under title for quick product info. */
+                .shortdesc {
+                font-weight: bold;
+                color: #444;
+                }
+
+                /* ===== Long description =====
+                Provides detailed information with spacing for readability. */
+                .longdesc {
+                margin-bottom: 20px;
+                line-height: 1.4;
+                }
+
+                /* ===== Form labels =====
+                Labels appear above their respective dropdowns. */
+                .hoodiedetails label {
+                display: block;
+                margin-top: 15px;
+                margin-bottom: 5px;
+                font-weight: bold;
+                }
+
+                /* ===== Dropdown styling =====
+                Consistent look for all select elements. */
+                .hoodiedetails select {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #aaa;
+                border-radius: 6px;
+                margin-bottom: 15px;
+                background: #fff;
+                }
+
+/* PANTS.HTML PAGE */
+                  /* ===== Page wrapper for pants product page =====
+                Adds padding and centers all page content horizontally. */
+                .pantspage {
+                width: 100%;
+                padding: 20px;
+                display: flex;
+                justify-content: center;
+                font-family: Arial, sans-serif;
+                }
+
+                /* ===== Two-column layout: Image + Details =====
+                Creates a horizontal row with space between columns. */
+                .pantsrow {
+                display: flex;
+                gap: 30px; /* Space between image and details */
+                max-width: 1100px;
+                width: 100%;
+                align-items: flex-start; /* Align top edges of columns */
+                }
+
+                /* ===== Product image styling =====
+                Controls image size, rounded corners, and aspect ratio. */
+                .pantsimage img {
+                width: 400px;
+                height: auto;
+                border-radius: 10px;
+                object-fit: cover; /* Keeps proportions intact */
+                }
+
+                /* ===== Details column styling =====
+                Expands to fill remaining horizontal space. */
+                .pantsdetails {
+                flex: 1;
+                }
+
+                /* ===== Product title ===== */
+                .pantsdetails h2 {
+                font-size: 28px;
+                margin-bottom: 10px;
+                }
+
+                /* ===== Short description =====
+                Bold text under title for quick product info. */
+                .pshortdesc {
+                font-weight: bold;
+                color: #444;
+                }
+
+                /* ===== Long description =====
+                Provides detailed information with spacing for readability. */
+                .plongdesc {
+                margin-bottom: 20px;
+                line-height: 1.4;
+                }
+
+                /* ===== Form labels =====
+                Labels appear above their respective dropdowns. */
+                .pantsdetails label {
+                display: block;
+                margin-top: 15px;
+                margin-bottom: 5px;
+                font-weight: bold;
+                }
+
+                /* ===== Dropdown styling =====
+                Consistent look for all select elements. */
+                .pantsdetails select {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #aaa;
+                border-radius: 6px;
+                margin-bottom: 15px;
+                background: #fff;
+                }
+
+/* ===== TSHIRT.HTML ===== */
+                /* ===== Two-column layout for t-shirt product page =====
+                Row contains image on left and details on right. */
+                .tshirtrow {
+                display: flex;
+                flex-wrap: wrap; /* Stack columns on smaller screens */
+                gap: 40px; /* Space between image and details */
+                margin: 40px auto;
+                max-width: 1000px; /* Limit total row width */
+                }
+
+                /* ===== Product image styling =====
+                Left column width and responsive image behavior. */
+                .tshirtimage {
+                flex: 1 1 400px; /* Left column width */
+                }
+
+                .tshirtimage img {
+                width: 100%;
+                border-radius: 10px;
+                object-fit: cover; /* Maintain image proportions */
+                }
+
+                /* ===== Details column styling =====
+                Right column width for text, labels, and dropdowns. */
+                .tshirtdetails {
+                flex: 1 1 400px; /* Right column width */
+                }
+
+                /* ===== Product title ===== */
+                .tshirtdetails h2 {
+                color: #4a3728;
+                margin-bottom: 10px;
+                }
+
+                /* ===== Product description =====
+                Paragraphs under title with spacing. */
+                .tshirtdetails p {
+                color: #6d4f38;
+                margin-bottom: 15px;
+                }
+
+                /* ===== Form labels =====
+                Appear above dropdowns with bold text. */
+                .tshirtdetails label {
+                font-weight: bold;
+                margin-top: 15px;
+                display: block;
+                color: #4a3728;
+                }
+
+                /* ===== Dropdown styling =====
+                Consistent appearance for select elements. */
+                .tshirtdetails select {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #b69373;
+                border-radius: 6px;
+                font-size: 1rem;
+                background: #fffdf9;
+                color: #4a3728;
+                margin-bottom: 10px;
+                }
+
+                /* ===== Focus state for dropdowns =====
+                Adds visible outline and shadow on interaction. */
+                .tshirtdetails select:focus {
+                border-color: #8b5e3c;
+                outline: none;
+                box-shadow: 0 0 6px rgba(139, 94, 60, 0.4);
+                }
+
+                /* ===== Utility button for selecting size =====
+                Styled for prominence and hover effect. */
+                .tshirtdetails .tshirtsizebtn {
+                display: inline-block;
+                margin-top: 10px;
+                padding: 10px 15px;
+                background: #8b5e3c;
+                color: #f8f4ef;
+                text-decoration: none;
+                border-radius: 6px;
+                font-weight: bold;
+                }
+
+                /* ===== Hover effect for size button ===== */
+                .tshirtdetails .tshirtsizebtn:hover {
+                background: #4a3728;
+                }
+
+/* ===== MAKEYOUROWN.HTML ===== */
+                /* ===== Main wrapper for the design page =====
+                Adds padding and background color, sets default text color. */
+                .designpage {
+                padding: 40px 20px;
+                background: #fff8f0; /* Soft cream background */
+                color: #4a3728; /* Warm brown text */
+                }
+
+                /* ===== Row container for design image and customization panel =====
+                Flexbox layout with gap and wrapping for responsiveness. */
+                .designrow {
+                display: flex;
+                gap: 40px; /* Space between image and customization panel */
+                align-items: flex-start; /* Align top edges */
+                flex-wrap: wrap; /* Allows stacking on smaller screens */
+                }
+
+                /* ===== Left Column: Preview Image =====
+                Image container with flexible width. */
+                .designimage {
+                flex: 1 1 350px; /* Flexible left column width */
+                }
+
+                .designimage img {
+                width: 100%;
+                border-radius: 12px;
+                object-fit: cover; /* Maintain aspect ratio */
+                box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* subtle depth */
+                }
+
+                /* ===== Right Column: Customization Panel =====
+                Contains dropdowns, labels, and buttons for user interaction. */
+                .designdetails {
+                flex: 1 1 350px; /* Flexible right column width */
+                background: #fff6ec;
+                padding: 25px 30px;
+                border-radius: 15px;
+                border: 2px solid #a67853;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.08);
+                }
+
+                /* ===== Section Titles ===== */
+                .designdetails h2 {
+                margin-bottom: 10px;
+                font-size: 1.9rem;
+                color: #5c3a21;
+                }
+
+                /* ===== Description Paragraphs =====
+                Provides spacing and readable line height. */
+                .designdetails p {
+                margin-bottom: 20px;
+                font-size: 1.1rem;
+                line-height: 1.5;
+                color: #7a5a41;
+                }
+
+                /* ===== Form Labels =====
+                Positioned above inputs/dropdowns, bolded for clarity. */
+                .designdetails label {
+                display: block;
+                margin-top: 15px;
+                margin-bottom: 5px;
+                font-weight: 600;
+                color: #5c3a21;
+                }
+
+                /* ===== Form Inputs =====
+                Dropdowns and file inputs styled consistently. */
+                .designdetails select,
+                .designdetails input[type="file"] {
+                width: 100%;
+                padding: 12px;
+                border: 2px solid #c79a72;
+                border-radius: 8px;
+                background: white;
+                font-size: 1rem;
+                color: #4a3728;
+                cursor: pointer;
+                transition: border-color 0.3s;
+                }
+
+                /* ===== Hover State for Inputs =====
+                Provides visual feedback on hover. */
+                .designdetails select:hover,
+                .designdetails input[type="file"]:hover {
+                border-color: #5c3a21;
+                }
+
+                /* ===== Button Row =====
+                Container for size guide and price list buttons. */
+                .buttonrow {
+                display: flex;
+                gap: 15px; /* Space between buttons */
+                margin-top: 20px; /* Space above buttons */
+                }
+
+/* BUTTONS FOR THE CLOTH TYPE PAGES */  
+/* Shared button styles */
+
+                .sizeguidebtn,
+                .pricebtn {
+                display: inline-block; /* Keep buttons inline but allow padding */
+                padding: 10px 16px; /* Space inside the button */
+                background: #a67853; /* Base warm brown color */
+                color: white; /* Text color */
+                border-radius: 8px; /* Rounded corners */
+                font-weight: 600; /* Semi-bold text */
+                text-decoration: none; /* Remove underline from links */
+                text-align: center; /* Center text inside button */
+                transition: background 0.3s, transform 0.2s; /* Smooth hover animations */
+                cursor: pointer; /* Show pointer on hover */
+                }
+
+                /* ===== Hover Effect =====
+                Darkens the button and slightly enlarges it for feedback. */
+                .sizeguidebtn:hover,
+                .pricebtn:hover {
+                background: #5c3a21; /* Darker brown on hover */
+                transform: scale(1.05); /* Slight zoom effect */
+                }
+
+                /* ===== Submit Order Button =====
+                Styled button for sending the order on product pages. */
+                .sendorderbtn {
+                width: 100%; /* Full width of the container */
+                margin-top: 25px; /* Space above the button */
+                padding: 14px 0; /* Vertical padding */
+                background: #5c3a21; /* Base brown color */
+                color: white; /* Text color */
+                font-size: 1.1rem; /* Slightly larger text */
+                border: none; /* Remove default border */
+                border-radius: 10px; /* Rounded corners */
+                cursor: pointer; /* Pointer on hover */
+                font-weight: 600; /* Semi-bold text */
+                transition: background 0.3s, transform 0.2s; /* Smooth hover effect */
+                }
+
+                /* ===== Hover Effect for Submit Button ===== */
+                .sendorderbtn:hover {
+                background: #3b2617; /* Darker brown on hover */
+                transform: translateY(-3px); /* Slight lift effect */
+                }
